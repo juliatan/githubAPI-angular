@@ -9,13 +9,22 @@
 
   <body ng-controller="GithubController">
     <!--<div ng-show="profile">-->
-    <div ng-repeat="repo in repos">
+    <!-- <div ng-repeat="repo in repos">
       {{repo.language}}
-    </div>
+    </div> -->
 
     <!-- <div ng-repeat="name in reponames">
       {{name}}
     </div> -->
-    Total number of repos: {{noOfRepos}}
+    <h1>Github Statistics</h1>
+    Repositories written in:
+    <ul>
+      <li>Ruby: {{ruby}}</li>
+      <li>JavaScript: {{javascript}}</li>
+      <li>CSS: {{css}}</li>
+      <li>N/A: {{none}}</li>
+    </ul>
+
+    <p>Total number of repos: {{noOfRepos}}</p>
 
 </html>
