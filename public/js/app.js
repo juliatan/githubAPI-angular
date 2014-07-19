@@ -36,7 +36,9 @@ app.controller('GithubController', ['$scope', '$http', function ($scope, $http) 
             $scope.commitMessages.push(commitData.commit.message);
           })
           $scope.commitMessages.map(function(message){
-            $scope.commitWords.push(message.split(" "));
+            message.split(" ").map(function(word){
+              $scope.commitWords.push(word.replace(/[.,]$/g,"").toLowerCase());
+            })
           })
 
           $scope.wordCount = _.flatten($scope.commitWords).reduce(function (acc, curr){
@@ -49,7 +51,10 @@ app.controller('GithubController', ['$scope', '$http', function ($scope, $http) 
             return acc;
           }, {});
 
-          console.log($scope.wordCount);
+          $scope.values = $scope.wordCount;
+
+          // console.log($scope.commitWords);
+          // console.log($scope.wordCount);
          
         })
       })
